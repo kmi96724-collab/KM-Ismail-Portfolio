@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>KHAN MOHAMMAD ISMAIL — Portfolio</title>
+  <meta name="description" content="Portfolio of KHAN MOHAMMAD ISMAIL — Student, Vibe Coder, Designer and Writer." />
+  <style>
+    :root{
+      --bg:#07090d;--surface:#0d1118;--surface2:#121722;--text:#f5f7fb;--muted:#9aa5b5;
+      --line:rgba(255,255,255,.09);--accent:#6ea8ff;--accent2:#8b7cff;--good:#73e2b0;
+      --shadow:0 24px 70px rgba(0,0,0,.35);--radius:24px;--max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:
+      radial-gradient(circle at 80% 0%,rgba(110,168,255,.12),transparent 32rem),
+      radial-gradient(circle at 15% 30%,rgba(139,124,255,.08),transparent 28rem),var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .nav{position:fixed;z-index:50;top:18px;left:0;right:0}
+    .nav-inner{width:min(1120px,calc(100% - 28px));margin:auto;display:flex;align-items:center;justify-content:space-between;
+      padding:10px 12px 10px 18px;background:rgba(10,13,19,.72);backdrop-filter:blur(18px);border:1px solid var(--line);
+      border-radius:18px;box-shadow:0 14px 45px rgba(0,0,0,.2)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em}
+    .brand-mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:13px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 8px 25px rgba(110,168,255,.25)}
+    .links{display:flex;gap:5px;align-items:center}
+    .links a,.icon-btn{padding:9px 12px;border-radius:11px;color:#c4ccd8;font-size:14px;transition:.2s}
+    .links a:hover,.icon-btn:hover{background:rgba(255,255,255,.07);color:#fff}
+    .icon-btn{border:0;background:transparent;color:#c4ccd8;cursor:pointer}
+    .mobile-toggle{display:none}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:150px 0 90px}
+    .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;
+      color:#c8d1de;background:rgba(255,255,255,.025);font-size:13px;margin-bottom:22px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 16px var(--good)}
+    h1{font-size:clamp(3.4rem,8vw,7.4rem);line-height:.91;letter-spacing:-.075em;max-width:900px}
+    .gradient{background:linear-gradient(100deg,#fff 5%,#a9caff 50%,#9a8cff 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:650px;color:var(--muted);font-size:18px;margin:28px 0}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 17px;border-radius:13px;border:1px solid var(--line);
+      transition:.2s;font-weight:700;font-size:14px;cursor:pointer}
+    .btn.primary{background:#fff;color:#080a0e;border-color:#fff}
+    .btn.secondary{background:rgba(255,255,255,.04);color:#fff}
+    .btn:hover{transform:translateY(-2px)}
+    .hero-card{position:relative;min-height:420px;border:1px solid var(--line);border-radius:32px;background:
+      linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:var(--shadow);overflow:hidden;padding:25px}
+    .hero-card:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(110,168,255,.22);filter:blur(50px);top:-80px;right:-80px}
+    .profile-orb{position:relative;height:270px;border-radius:25px;border:1px solid var(--line);display:grid;place-items:center;
+      background:linear-gradient(145deg,#151d2b,#0a0e15);overflow:hidden}
+    .profile-orb span{font-size:86px;font-weight:900;letter-spacing:-.08em;background:linear-gradient(135deg,#fff,#7ea9ff,#8d80ff);
+      -webkit-background-clip:text;color:transparent}
+    .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+    .mini{padding:13px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03)}
+    .mini b{display:block;font-size:18px}.mini small{color:var(--muted)}
+    section{padding:110px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:38px}
+    .kicker{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    h2{font-size:clamp(2.2rem,5vw,4.3rem);line-height:1;letter-spacing:-.06em;margin-top:9px}
+    .section-head p{color:var(--muted);max-width:450px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .panel{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:var(--radius);padding:30px}
+    .panel p{color:var(--muted);font-size:16px}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+    .fact{padding:18px;border-radius:17px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+    .fact strong{display:block;margin-bottom:4px}.fact span{font-size:13px;color:var(--muted)}
+    .chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .chip{padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.035);font-size:13px;color:#cfd6e1}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025);overflow:hidden;transition:.25s}
+    .project:hover{transform:translateY(-5px);border-color:rgba(130,165,255,.3);box-shadow:var(--shadow)}
+    .project-media{aspect-ratio:16/10;background:linear-gradient(135deg,#121a28,#090c12);overflow:hidden}
+    .project-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .project-placeholder{height:100%;display:grid;place-items:center;color:#657187;font-size:42px;font-weight:900}
+    .project-body{padding:21px}.project-body small{color:var(--accent)}.project-body h3{font-size:21px;margin:6px 0}.project-body p{color:var(--muted);font-size:14px}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{padding:28px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}
+    .service-num{font-size:12px;color:var(--accent);font-weight:800}.service h3{margin:25px 0 8px;font-size:23px}.service p{color:var(--muted);font-size:14px}
+    .contact{border:1px solid var(--line);border-radius:32px;padding:55px;background:linear-gradient(135deg,rgba(110,168,255,.12),rgba(139,124,255,.07));display:flex;justify-content:space-between;gap:35px;align-items:center}
+    .contact p{color:var(--muted);max-width:560px;margin-top:14px}.socials{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+    footer{padding:30px 0 45px;color:#697386;font-size:13px;border-top:1px solid var(--line)}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px}
+    .admin-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:20px}
+    .admin-box{width:min(900px,100%);max-height:90vh;overflow:auto;background:#0d1118;border:1px solid var(--line);border-radius:25px;padding:25px}
+    .admin-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
+    label{font-size:12px;color:#9aa5b5}.field input,.field textarea{background:#080b10;color:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 12px;outline:none}
+    textarea{min-height:90px;resize:vertical}.admin-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}
+    .status{margin-top:10px;color:var(--good);font-size:13px}.empty{color:var(--muted);padding:30px;text-align:center;border:1px dashed var(--line);border-radius:18px}
+    @media(max-width:850px){
+      .links{display:none}.mobile-toggle{display:block}.hero-grid,.about-grid{grid-template-columns:1fr}.hero{padding-top:130px}.hero-card{min-height:auto}
+      .projects,.services{grid-template-columns:1fr 1fr}.contact{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:560px){
+      .container{width:min(100% - 26px,var(--max))}.nav{top:10px}.nav-inner{width:calc(100% - 18px)}
+      h1{font-size:clamp(3rem,17vw,5rem)}.hero p{font-size:16px}.hero-card{padding:15px}.profile-orb{height:210px}
+      section{padding:78px 0}.section-head{display:block}.section-head p{margin-top:18px}.projects,.services,.form-grid{grid-template-columns:1fr}
+      .facts{grid-template-columns:1fr}.contact{padding:32px 22px}.footer-inner{flex-direction:column}.project-body{padding:18px}
+    }
+  
+/* Modern visual upgrade */
+body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:linear-gradient(rgba(255,255,255,.7) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.7) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,black,transparent 75%);z-index:-1}
+.nav-inner{border-color:rgba(255,255,255,.12);box-shadow:0 20px 70px rgba(0,0,0,.28)}
+.brand-mark{position:relative;overflow:hidden}
+.brand-mark:after{content:"";position:absolute;inset:-30%;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.5),transparent 65%);transform:translateX(-120%) rotate(12deg);animation:shine 4s infinite}
+@keyframes shine{55%,100%{transform:translateX(120%) rotate(12deg)}}
+.hero{position:relative}
+.hero:before{content:"";position:absolute;width:520px;height:520px;left:-260px;top:35%;border-radius:50%;background:rgba(99,140,255,.07);filter:blur(70px);pointer-events:none}
+.hero-card{transform:rotate(1deg);transition:.45s}
+.hero-card:hover{transform:rotate(0) translateY(-5px)}
+.profile-orb:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(150,180,255,.18);border-radius:50%;animation:spin 12s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.project,.service,.panel{transition:.28s}
+.panel:hover,.service:hover{transform:translateY(-4px);border-color:rgba(130,165,255,.24);box-shadow:0 18px 55px rgba(0,0,0,.18)}
+.project-media{position:relative}
+.project-media:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.38),transparent 55%);pointer-events:none}
+.admin-box{box-shadow:0 35px 100px rgba(0,0,0,.55);background:linear-gradient(145deg,#101620,#090c12)}
+.admin-box h2{background:linear-gradient(100deg,#fff,#9ebdff);-webkit-background-clip:text;color:transparent}
+.field input:focus,.field textarea:focus{border-color:rgba(110,168,255,.65);box-shadow:0 0 0 4px rgba(110,168,255,.08)}
+.status{padding:9px 12px;border-radius:11px;background:rgba(115,226,176,.06);border:1px solid rgba(115,226,176,.12)}
+@media(max-width:560px){#loginView>div{grid-template-columns:1fr!important}.hero-card{transform:none}.hero-card:hover{transform:translateY(-3px)}}
+
+    .editor-scroll{max-height:calc(100vh - 170px);overflow:auto;padding:2px 2px 18px}
+    .editor-scroll::-webkit-scrollbar{width:8px}.editor-scroll::-webkit-scrollbar-thumb{background:#293447;border-radius:99px}
+    .editor-section{margin-top:28px}
+    .editor-section h3{font-size:18px;margin:0 0 12px}
+    .editor-help{color:var(--muted);font-size:13px;margin:-3px 0 12px}
+    .editor-item{border:1px solid var(--line);background:#070a10;border-radius:18px;padding:14px;margin:10px 0}
+    .editor-item-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+    .editor-item-head strong{font-size:13px}
+    .remove-item{background:#ef272d;color:#fff;border:0;border-radius:12px;padding:9px 14px;font-weight:800;cursor:pointer}
+    .editor-item-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .editor-item-grid .full{grid-column:1/-1}
+    .image-upload-box{border:1px dashed #3b4a62;border-radius:14px;padding:12px;background:rgba(255,255,255,.015)}
+    .image-preview{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;background:#0b0f16;display:block;margin-top:10px}
+    .image-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .image-url-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}
+    .save-note{color:var(--muted);font-size:13px;display:flex;align-items:center}
+    .editor-footer{position:sticky;bottom:0;background:linear-gradient(to bottom,rgba(15,22,34,.86),#0f1622 25%);padding:16px 4px 0;border-top:1px solid var(--line);margin-top:8px}
+    @media(max-width:700px){.editor-item-grid{grid-template-columns:1fr}.editor-item-grid .full{grid-column:auto}.image-url-row{grid-template-columns:1fr}.save-note{display:none}}
+
+    .direct-links{display:grid;gap:10px;margin-top:24px;max-width:850px}
+    .direct-link-row{display:flex;align-items:center;gap:18px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025);min-width:0}
+    .direct-link-label{width:78px;flex:0 0 78px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+    .direct-link-row a{color:#8fb6ff;text-decoration:none;font-size:14px;font-weight:650;overflow-wrap:anywhere;word-break:break-word}
+    .direct-link-row a:hover{text-decoration:underline;color:#b8d1ff}
+    @media(max-width:600px){.direct-link-row{align-items:flex-start;flex-direction:column;gap:5px}.direct-link-label{width:auto}}
+
+.profile-photo-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:18px}
+.profile-photo{width:132px;height:132px;border-radius:50%;overflow:hidden;border:2px solid rgba(143,182,255,.45);background:linear-gradient(145deg,#17243a,#0a0f18);display:grid;place-items:center;position:relative;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.profile-photo span{font-size:30px;font-weight:900;color:#9fc0ff}
+.profile-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.profile-photo-admin{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+.profile-photo-admin span{font-size:12px;color:var(--muted)}
+
+    .profile-orb{position:relative;overflow:hidden}
+    .profile-orb #profilePhotoImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:2}
+    .profile-orb #profileInitials{position:relative;z-index:1}
+    .hero-photo-admin{margin:10px 0 0;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
+    .hero-photo-admin span{font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home"><span class="brand-mark">KMI</span><span>KM ISMAIL</span></a>
+      <nav class="links">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#services">Services</a><a href="#contact">Contact</a>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
+        <button class="icon-btn" id="adminBtn">Admin</button>
+      </nav>
+      <button class="icon-btn mobile-toggle" id="mobileBtn">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span><span>Student · Creator · Builder</span></div>
+          <h1>KHAN<br><span class="gradient">MOHAMMAD</span><br>ISMAIL.</h1>
+          <p id="heroTagline">I build digital experiences, design visual ideas and turn concepts into useful products.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">View my work ↗</a>
+            <a class="btn secondary" href="#contact">Let's connect</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="profile-orb" id="profilePhoto">
+            <span id="profileInitials">KMI</span>
+            <img id="profilePhotoImg" alt="KHAN MOHAMMAD ISMAIL profile photo">
+          </div>
+          <div class="profile-photo-admin hero-photo-admin" id="profilePhotoAdmin" style="display:none">
+            <input id="profilePhotoFile" type="file" accept="image/*" hidden>
+            <button type="button" class="btn secondary" id="uploadProfilePhoto">Add / Change Photo</button>
+            <button type="button" class="btn secondary" id="removeProfilePhoto">Remove</button>
+            <span id="profilePhotoStatus"></span>
+          </div>
+          <div class="mini-grid">
+            <div class="mini"><b id="roleText">STUDENT</b><small>Current role</small></div>
+            <div class="mini"><b id="projectCount">03+</b><small>Creative projects</small></div>
+          </div>
+          <div class="chips" id="heroSkills"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">01 — About</div><h2>A little about me.</h2></div>
+          <p>A personal space for my work, skills, ideas and the things I am learning along the way.</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel"><p id="aboutText">I am KHAN MOHAMMAD ISMAIL, a student interested in coding, design and creative digital work. I enjoy learning by building real projects and experimenting with new ideas.</p>
+            <div class="facts">
+              <div class="fact"><strong>Education</strong><span id="educationText">KHILGAON GOVT. HIGH SCHOOL</span></div>
+              <div class="fact"><strong>Based in</strong><span>Bangladesh</span></div>
+              <div class="fact"><strong>Focus</strong><span>Web · Design · Creative</span></div>
+              <div class="fact"><strong>Contact</strong><span id="emailText">kmi96724@gmail.com</span></div>
+            </div>
+          </div>
+          <div class="panel"><div class="kicker">Skills & tools</div><h3 style="font-size:30px;margin-top:10px">What I work with.</h3>
+            <p style="margin-top:10px">A growing toolkit for building, designing and communicating digital ideas.</p>
+            <div class="chips" id="skills"></div>
+            <div class="chips" id="tools"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker">02 — Selected work</div><h2>Projects.</h2></div><p>Some of the projects and experiments I have worked on.</p></div>
+        <div class="projects" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker">03 — Services</div><h2>What I can do.</h2></div><p>Creative and technical work shaped around simple, useful experiences.</p></div>
+        <div class="services" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <div><div class="kicker">04 — Contact</div><h2>Let's build<br>something useful.</h2>
+            <p>If you want to discuss a project, design idea or collaboration, you can reach me here.</p>
+            <div class="direct-links">
+              <div class="direct-link-row">
+                <span class="direct-link-label">Email</span>
+                <a id="emailLink" href="mailto:kmi96724@gmail.com">kmi96724@gmail.com</a>
+              </div>
+              <div class="direct-link-row">
+                <span class="direct-link-label">GitHub</span>
+                <a id="githubLink" target="_blank" rel="noopener">https://github.com/kmi96724-collab</a>
+              </div>
+              <div class="direct-link-row">
+                <span class="direct-link-label">Facebook</span>
+                <a id="facebookLink" target="_blank" rel="noopener">https://www.facebook.com/kmismailkuro098</a>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:90px;line-height:1;font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.08)">KMI</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> KHAN MOHAMMAD ISMAIL</span><span>Designed & built with curiosity.</span></div></footer>
+
+  <div class="admin-overlay" id="adminOverlay">
+    <div class="admin-box">
+      <div class="admin-head"><div><div class="kicker">Private editor</div><h2 style="font-size:30px">Portfolio Admin</h2></div><button class="icon-btn" id="closeAdmin">✕</button></div>
+      <div id="loginView">
+        <div style="display:grid;grid-template-columns:1fr .8fr;gap:18px;align-items:stretch">
+          <div class="panel" style="padding:24px">
+            <div class="kicker">Secure access</div>
+            <h3 style="font-size:28px;margin:8px 0">Welcome back.</h3>
+            <p style="color:var(--muted);font-size:14px;margin-bottom:20px">Only the authorized Firebase account can edit this portfolio.</p>
+            <div class="field"><label>ADMIN EMAIL</label><input id="loginEmail" type="email" value="kmi96724@gmail.com" autocomplete="username"></div>
+            <div class="field" style="margin-top:12px"><label>PASSWORD</label><input id="loginPassword" type="password" placeholder="Enter your Firebase Auth password" autocomplete="current-password"></div>
+            <div class="admin-actions" style="justify-content:stretch"><button class="btn primary" id="loginBtn" style="width:100%">Continue to dashboard →</button></div>
+            <div class="status" id="loginStatus"></div>
+          </div>
+          <div class="panel" style="padding:24px;background:linear-gradient(145deg,rgba(110,168,255,.10),rgba(139,124,255,.07))">
+            <div style="font-size:42px;margin-bottom:18px">✦</div>
+            <h3 style="font-size:21px">Private portfolio studio</h3>
+            <p style="color:var(--muted);font-size:13px;margin-top:8px">Edit your profile, projects, links, skills and services from one clean dashboard.</p>
+            <div class="chips"><span class="chip">Firebase Auth</span><span class="chip">Firestore</span><span class="chip">Admin only</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="editorView" style="display:none">
+        <div class="editor-scroll">
+          <div class="form-grid">
+            <div class="field"><label>Name</label><input id="fName"></div>
+            <div class="field"><label>Role</label><input id="fRole"></div>
+            <div class="field full"><label>Tagline</label><input id="fTagline"></div>
+            <div class="field full"><label>About</label><textarea id="fAbout"></textarea></div>
+            <div class="field"><label>Education</label><input id="fEducation"></div>
+            <div class="field"><label>Email</label><input id="fEmail" type="email"></div>
+            <div class="field"><label>GitHub URL</label><input id="fGithub"></div>
+            <div class="field"><label>Facebook URL</label><input id="fFacebook"></div>
+            <div class="field full">
+              <label>Profile Photo</label>
+              <div class="image-upload-box">
+                <div class="image-url-row">
+                  <div class="field" style="margin:0"><label>Photo URL (optional)</label><input id="fProfilePhoto" placeholder="Upload a photo or paste an HTTPS image URL"></div>
+                  <button type="button" class="btn secondary" id="uploadProfilePhotoEditor" style="height:44px;white-space:nowrap">Upload Photo</button>
+                </div>
+                <input id="profilePhotoFileEditor" type="file" accept="image/*" hidden>
+                <img id="profilePhotoPreviewEditor" class="image-preview" style="display:none" alt="Profile photo preview">
+                <div class="image-actions"><button type="button" class="btn secondary" id="clearProfilePhoto">Clear</button><span id="profilePhotoEditorStatus" style="font-size:12px;color:var(--muted)"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <section class="editor-section">
+            <h3>Skills</h3>
+            <div id="skillsEditor"></div>
+            <button class="btn secondary add-btn" id="addSkill">+ Add Skill</button>
+          </section>
+
+          <section class="editor-section">
+            <h3>Technologies / Tools</h3>
+            <div id="toolsEditor"></div>
+            <button class="btn secondary add-btn" id="addTool">+ Add Technology</button>
+          </section>
+
+          <section class="editor-section">
+            <h3>Projects</h3>
+            <p class="editor-help">Each project can have its own image. Upload an image from your device or paste an HTTPS image URL.</p>
+            <div id="projectsEditor"></div>
+            <button class="btn secondary add-btn" id="addProject">+ Add Project</button>
+          </section>
+
+          <section class="editor-section">
+            <h3>Services</h3>
+            <div id="servicesEditor"></div>
+            <button class="btn secondary add-btn" id="addService">+ Add Service</button>
+          </section>
+        </div>
+
+        <div class="admin-actions editor-footer">
+          <span class="save-note">Changes are saved to Firebase Firestore.</span>
+          <div style="display:flex;gap:10px">
+            <button class="btn secondary" id="logoutBtn">Logout</button>
+            <button class="btn primary" id="saveBtn">Save Changes</button>
+          </div>
+        </div>
+        <div class="status" id="saveStatus"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+    import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey:"AIzaSyA9KfxvkdDwYe5GoxC9LRplrONhXGnWi9U",
+      authDomain:"portfolio-94d9f.firebaseapp.com",
+      projectId:"portfolio-94d9f",
+      storageBucket:"portfolio-94d9f.firebasestorage.app",
+      messagingSenderId:"902753626646",
+      appId:"1:902753626646:web:c3bf74c290ec6ede592337",
+      measurementId:"G-96LJYNXP8H"
+    };
+    const ADMIN_EMAIL="kmi96724@gmail.com";
+    const app=initializeApp(firebaseConfig), auth=getAuth(app), db=getFirestore(app), storage=getStorage(app);
+    const ref=doc(db,"portfolio","main");
+
+    const defaults={profilePhoto:"",
+      name:"KHAN MOHAMMAD ISMAIL", role:"STUDENT",
+      tagline:"I build digital experiences, design visual ideas and turn concepts into useful products.",
+      about:"I am KHAN MOHAMMAD ISMAIL, a student interested in coding, design and creative digital work. I enjoy learning by building real projects and experimenting with new ideas.",
+      education:"KHILGAON GOVT. HIGH SCHOOL", email:"kmi96724@gmail.com",
+      github:"https://github.com/kmi96724-collab", facebook:"https://www.facebook.com/kmismailkuro098",
+      skills:["VIBE CODER","DESIGNER","FOOTBALL DEFENDER"],
+      tools:["VS Code","HTML","CSS","JavaScript","Photoshop","Canva"],
+      projects:[
+        {title:"OIKKO",category:"Web App",description:"A social-style web application project with messaging and community features.",image:"",link:""},
+        {title:"Club Poster Design",category:"Design",description:"A visual poster design project created for a club/community concept.",image:"",link:""}
+      ],
+      services:["Vibe Coder","Designer","Writer"]
+    };
+
+    const $=id=>document.getElementById(id);
+    let data={...defaults};
+
+    function arr(v){return Array.isArray(v)?v:String(v||"").split(",").map(x=>x.trim()).filter(Boolean)}
+    function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+    function escAttr(s){return esc(s)}
+    function projectTemplate(p={},i=0){
+      return `<div class="editor-item project-editor" data-index="${i}">
+        <div class="editor-item-head"><strong>Project ${i+1}</strong><button type="button" class="remove-item remove-project">Remove</button></div>
+        <div class="editor-item-grid">
+          <div class="field"><label>Title</label><input class="p-title" value="${escAttr(p.title||"")}"></div>
+          <div class="field"><label>Type</label><input class="p-category" value="${escAttr(p.category||"")}"></div>
+          <div class="field full"><label>Description</label><textarea class="p-description">${esc(p.description||"")}</textarea></div>
+          <div class="field"><label>Technology</label><input class="p-tech" value="${escAttr(p.technology||"")}"></div>
+          <div class="field">
+            <label>Project Image</label>
+            <div class="image-upload-box">
+              <div class="image-url-row">
+                <div class="field" style="margin:0"><label>Image URL (optional)</label><input class="p-image" placeholder="https://..." value="${escAttr(p.image||"")}"></div>
+                <button type="button" class="btn secondary upload-image" style="height:44px;white-space:nowrap">Upload image</button>
+              </div>
+              <input class="p-file" type="file" accept="image/*" hidden>
+              <img class="image-preview" ${p.image?`src="${escAttr(p.image)}"`:"style=\"display:none\""} alt="Project image preview">
+              <div class="image-actions"><button type="button" class="btn secondary clear-image">Clear image</button><span class="upload-status" style="font-size:12px;color:var(--muted);align-self:center"></span></div>
+            </div>
+          </div>
+          <div class="field"><label>Project URL (optional)</label><input class="p-link" value="${escAttr(p.link||"")}"></div>
+        </div>
+      </div>`;
+    }
+    function simpleTemplate(value,i,type){
+      return `<div class="editor-item simple-editor" data-type="${type}">
+        <div class="editor-item-head"><strong>Item ${i+1}</strong><button type="button" class="remove-item remove-simple">Remove</button></div>
+        <input class="simple-value" value="${escAttr(value||"")}">
+      </div>`;
+    }
+    function serviceTemplate(value,i){
+      return `<div class="editor-item service-editor">
+        <div class="editor-item-head"><strong>Service ${i+1}</strong><button type="button" class="remove-item remove-simple">Remove</button></div>
+        <div class="editor-item-grid">
+          <div class="field"><label>Title</label><input class="service-title" value="${escAttr(value||"")}"></div>
+          <div class="field"><label>Description</label><input class="service-description" value=""></div>
+        </div>
+      </div>`;
+    }
+
+    function render(){
+      $("heroTagline").textContent=data.tagline||defaults.tagline;
+      if($("profilePhotoImg")){
+        const photo=data.profilePhoto||"";
+        $("profilePhotoImg").src=photo;
+        $("profilePhotoImg").style.display=photo?"block":"none";
+        $("profileInitials").style.display=photo?"none":"block";
+      }
+      $("roleText").textContent=(data.role||"STUDENT").toUpperCase();
+      $("aboutText").textContent=data.about||"";
+      $("educationText").textContent=data.education||"";
+      $("emailText").textContent=data.email||"";
+      $("emailLink").href="mailto:"+(data.email||"");
+      $("emailLink").textContent=data.email||"";
+      $("githubLink").href=data.github||"#"; $("githubLink").textContent=data.github||"";
+      $("facebookLink").href=data.facebook||"#"; $("facebookLink").textContent=data.facebook||"";
+      const skills=arr(data.skills), tools=arr(data.tools);
+      $("heroSkills").innerHTML=skills.slice(0,4).map(x=>`<span class="chip">${esc(x)}</span>`).join("");
+      $("skills").innerHTML=skills.map(x=>`<span class="chip">${esc(x)}</span>`).join("");
+      $("tools").innerHTML=tools.map(x=>`<span class="chip">${esc(x)}</span>`).join("");
+      const projects=Array.isArray(data.projects)?data.projects:[];
+      $("projectCount").textContent=String(projects.length).padStart(2,"0")+"+";
+      $("projectsGrid").innerHTML=projects.length?projects.map((p,i)=>`
+        <article class="project">
+          <div class="project-media">${p.image?`<img src="${escAttr(p.image)}" alt="${escAttr(p.title||"Project image")}" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=&quot;project-placeholder&quot;>${String(i+1).padStart(2,"0")}</div>'">`:`<div class="project-placeholder">${String(i+1).padStart(2,"0")}</div>`}</div>
+          <div class="project-body"><small>${esc(p.category||"Project")}</small><h3>${esc(p.title||"Untitled project")}</h3><p>${esc(p.description||"")}</p>
+          ${p.link?`<div style="margin-top:15px"><a class="btn secondary" href="${escAttr(p.link)}" target="_blank" rel="noopener">Open project ↗</a></div>`:""}</div>
+        </article>`).join(""):`<div class="empty" style="grid-column:1/-1">Projects will appear here.</div>`;
+      const services=arr(data.services);
+      $("servicesGrid").innerHTML=services.map((x,i)=>{
+        const title=typeof x==="object"?x.title:x;
+        const desc=typeof x==="object"?x.description:"Creative, thoughtful work focused on clear ideas and useful digital experiences.";
+        return `<article class="service"><div class="service-num">0${i+1}</div><h3>${esc(title)}</h3><p>${esc(desc)}</p></article>`;
+      }).join("");
+      fillEditor();
+    }
+
+    function fillEditor(){
+      $("fName").value=data.name||"";$("fRole").value=data.role||"";$("fTagline").value=data.tagline||"";$("fAbout").value=data.about||"";
+      $("fEducation").value=data.education||"";$("fEmail").value=data.email||"";$("fGithub").value=data.github||"";$("fFacebook").value=data.facebook||"";
+      if($("fProfilePhoto")){$("fProfilePhoto").value=data.profilePhoto||"";$("profilePhotoPreviewEditor").src=data.profilePhoto||"";$("profilePhotoPreviewEditor").style.display=data.profilePhoto?"block":"none";}
+
+      $("skillsEditor").innerHTML=arr(data.skills).map((x,i)=>simpleTemplate(x,i,"skill")).join("");
+      $("toolsEditor").innerHTML=arr(data.tools).map((x,i)=>simpleTemplate(x,i,"tool")).join("");
+      $("projectsEditor").innerHTML=(Array.isArray(data.projects)?data.projects:[]).map((x,i)=>projectTemplate(x,i)).join("");
+      $("servicesEditor").innerHTML=arr(data.services).map((x,i)=>serviceTemplate(typeof x==="object"?x.title:x,i)).join("");
+      bindEditorEvents();
+      setupProfilePhotoUpload();
+    }
+
+    function bindEditorEvents(){
+      document.querySelectorAll(".remove-simple").forEach(btn=>btn.onclick=()=>btn.closest(".editor-item").remove());
+      document.querySelectorAll(".remove-project").forEach(btn=>btn.onclick=()=>btn.closest(".project-editor").remove());
+
+      document.querySelectorAll(".upload-image").forEach(btn=>{
+        btn.onclick=()=>btn.closest(".image-upload-box").querySelector(".p-file").click();
+      });
+      document.querySelectorAll(".p-file").forEach(file=>{
+        file.onchange=async()=>{
+          const box=file.closest(".image-upload-box"), status=box.querySelector(".upload-status"), preview=box.querySelector(".image-preview"), url=box.querySelector(".p-image");
+          const f=file.files?.[0]; if(!f) return;
+          if(!f.type.startsWith("image/")){status.textContent="Please select an image file.";return}
+          if(f.size>10*1024*1024){status.textContent="Image must be 10 MB or smaller.";return}
+          const user=auth.currentUser;
+          if(!user || user.email!==ADMIN_EMAIL){status.textContent="Please login as admin first.";return}
+          status.textContent="Uploading…";
+          try{
+            const safe=f.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+            const path=`portfolio-projects/${user.uid}/${Date.now()}-${safe}`;
+            const r=storageRef(storage,path);
+            await uploadBytes(r,f,{contentType:f.type});
+            const downloadURL=await getDownloadURL(r);
+            url.value=downloadURL; preview.src=downloadURL; preview.style.display="block";
+            status.textContent="Uploaded successfully.";
+          }catch(e){status.textContent=e?.message||"Upload failed."}
+        };
+      });
+      document.querySelectorAll(".clear-image").forEach(btn=>{
+        btn.onclick=()=>{
+          const box=btn.closest(".image-upload-box");
+          box.querySelector(".p-image").value="";
+          box.querySelector(".p-file").value="";
+          box.querySelector(".image-preview").style.display="none";
+          box.querySelector(".upload-status").textContent="Image cleared.";
+        };
+      });
+      document.querySelectorAll(".p-image").forEach(input=>{
+        input.oninput=()=>{
+          const box=input.closest(".image-upload-box"), preview=box.querySelector(".image-preview");
+          if(input.value.trim()){preview.src=input.value.trim();preview.style.display="block"}else preview.style.display="none";
+        };
+      });
+    }
+
+
+    function setupProfilePhotoUpload(){
+      const fileInput=$("profilePhotoFileEditor"), btn=$("uploadProfilePhotoEditor"), status=$("profilePhotoEditorStatus"), url=$("fProfilePhoto"), preview=$("profilePhotoPreviewEditor");
+      if(!btn) return;
+      btn.onclick=()=>fileInput.click();
+      fileInput.onchange=async()=>{
+        const f=fileInput.files?.[0]; if(!f) return;
+        if(!f.type.startsWith("image/")){status.textContent="Please select an image.";return}
+        if(f.size>10*1024*1024){status.textContent="Maximum 10 MB.";return}
+        const user=auth.currentUser;
+        if(!user || user.email!==ADMIN_EMAIL){status.textContent="Admin login required.";return}
+        status.textContent="Uploading…";
+        try{
+          const safe=f.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+          const r=storageRef(storage,`portfolio-profile/${user.uid}/${Date.now()}-${safe}`);
+          await uploadBytes(r,f,{contentType:f.type});
+          const u=await getDownloadURL(r);
+          url.value=u; preview.src=u; preview.style.display="block"; status.textContent="Uploaded. Click Save Changes.";
+        }catch(e){status.textContent=e?.message||"Upload failed."}
+      };
+      $("clearProfilePhoto").onclick=()=>{url.value="";preview.src="";preview.style.display="none";status.textContent="Cleared. Click Save Changes."};
+      url.oninput=()=>{preview.src=url.value;preview.style.display=url.value?"block":"none"};
+    }
+
+    function collect(){
+      const skills=[...document.querySelectorAll("#skillsEditor .simple-value")].map(x=>x.value.trim()).filter(Boolean);
+      const tools=[...document.querySelectorAll("#toolsEditor .simple-value")].map(x=>x.value.trim()).filter(Boolean);
+      const projects=[...document.querySelectorAll("#projectsEditor .project-editor")].map(card=>({
+        title:card.querySelector(".p-title").value.trim(),
+        category:card.querySelector(".p-category").value.trim(),
+        description:card.querySelector(".p-description").value.trim(),
+        technology:card.querySelector(".p-tech").value.trim(),
+        image:card.querySelector(".p-image").value.trim(),
+        link:card.querySelector(".p-link").value.trim()
+      }));
+      const services=[...document.querySelectorAll("#servicesEditor .service-editor")].map(card=>({
+        title:card.querySelector(".service-title").value.trim(),
+        description:card.querySelector(".service-description").value.trim()
+      })).filter(x=>x.title);
+      return {
+        name:$("fName").value.trim(),role:$("fRole").value.trim(),tagline:$("fTagline").value.trim(),about:$("fAbout").value.trim(),
+        education:$("fEducation").value.trim(),email:$("fEmail").value.trim(),github:$("fGithub").value.trim(),facebook:$("fFacebook").value.trim(),
+        profilePhoto:$("fProfilePhoto").value.trim(),skills,tools,projects,services
+      };
+    }
+
+    async function load(){
+      try{const snap=await getDoc(ref); if(snap.exists()) data={...defaults,...snap.data()};}
+      catch(e){console.warn("Firestore read failed:",e)}
+      render();
+    }
+
+    $("year").textContent=new Date().getFullYear();
+    $("themeBtn").onclick=()=>document.body.classList.toggle("light");
+    $("adminBtn").onclick=()=>{ $("adminOverlay").style.display="flex" };
+    $("closeAdmin").onclick=()=>{ $("adminOverlay").style.display="none" };
+    $("mobileBtn").onclick=()=>{
+      const links=document.querySelector(".links");
+      if(getComputedStyle(links).display==="none"){links.style.display="flex";links.style.position="absolute";links.style.top="60px";links.style.left="10px";links.style.right="10px";links.style.padding="10px";links.style.background="#0d1118";links.style.border="1px solid var(--line)";links.style.borderRadius="16px";links.style.flexDirection="column";links.style.alignItems="stretch"}
+      else links.style.display="";
+    };
+
+    $("loginBtn").onclick=async()=>{
+      $("loginStatus").textContent="Signing in…";
+      try{
+        const email=$("loginEmail").value.trim();
+        if(email!==ADMIN_EMAIL) throw new Error("Only the authorized admin account can edit this portfolio.");
+        await signInWithEmailAndPassword(auth,email,$("loginPassword").value);
+      }catch(e){$("loginStatus").textContent=e.message||"Login failed."}
+    };
+
+    onAuthStateChanged(auth,user=>{
+      const ok=user&&user.email===ADMIN_EMAIL;
+      $("loginView").style.display=ok?"none":"block";
+      $("editorView").style.display=ok?"block":"none";$("profilePhotoAdmin").style.display=ok?"flex":"none";
+      if(ok) fillEditor();
+    });
+
+
+    $("uploadProfilePhoto").onclick=()=>$("profilePhotoFile").click();
+    $("profilePhotoFile").onchange=async()=>{
+      const f=$("profilePhotoFile").files?.[0]; if(!f)return;
+      const status=$("profilePhotoStatus");
+      if(!f.type.startsWith("image/")){status.textContent="Please select an image.";return}
+      if(f.size>10*1024*1024){status.textContent="Maximum 10 MB.";return}
+      const user=auth.currentUser;if(!user||user.email!==ADMIN_EMAIL){status.textContent="Admin login required.";return}
+      status.textContent="Uploading…";
+      try{
+        const safe=f.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+        const r=storageRef(storage,`portfolio-profile/${user.uid}/${Date.now()}-${safe}`);
+        await uploadBytes(r,f,{contentType:f.type});
+        const u=await getDownloadURL(r);
+        data.profilePhoto=u;await setDoc(ref,{profilePhoto:u},{merge:true});render();status.textContent="Photo updated.";
+      }catch(e){status.textContent=e?.message||"Upload failed."}
+    };
+    $("removeProfilePhoto").onclick=async()=>{
+      try{await setDoc(ref,{profilePhoto:""},{merge:true});data.profilePhoto="";render();$("profilePhotoStatus").textContent="Photo removed."}
+      catch(e){$("profilePhotoStatus").textContent=e?.message||"Could not remove photo."}
+    };
+
+    $("logoutBtn").onclick=()=>signOut(auth);
+
+    $("addSkill").onclick=()=>{
+      const wrap=$("skillsEditor"), i=wrap.children.length;
+      wrap.insertAdjacentHTML("beforeend",simpleTemplate("",i,"skill")); bindEditorEvents();
+    };
+    $("addTool").onclick=()=>{
+      const wrap=$("toolsEditor"), i=wrap.children.length;
+      wrap.insertAdjacentHTML("beforeend",simpleTemplate("",i,"tool")); bindEditorEvents();
+    };
+    $("addProject").onclick=()=>{
+      const wrap=$("projectsEditor"), i=wrap.children.length;
+      wrap.insertAdjacentHTML("beforeend",projectTemplate({},i)); bindEditorEvents();
+    };
+    $("addService").onclick=()=>{
+      const wrap=$("servicesEditor"), i=wrap.children.length;
+      wrap.insertAdjacentHTML("beforeend",serviceTemplate("",i));
+      bindEditorEvents();
+    };
+
+    $("saveBtn").onclick=async()=>{
+      $("saveStatus").textContent="Saving…";
+      try{
+        const next=collect();
+        await setDoc(ref,next,{merge:true});
+        data={...data,...next};
+        render();
+        $("saveStatus").textContent="Saved successfully.";
+      }catch(e){$("saveStatus").textContent=e.message||"Could not save changes."}
+    };
+
+    load();
+  </script>
+</body>
+</html>
